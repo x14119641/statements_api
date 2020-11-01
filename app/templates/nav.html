@@ -1,0 +1,13 @@
+<nav>
+    <div class="nav-wrapper"> <a href="{{ url_for('auth.index') }}" class="brand-logo">Home</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Settings</a></li>
+            
+            {% if g.user %}
+                <li><a href="#">Logout</a></li>
+            {% else %}
+                <li><a href="#">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
