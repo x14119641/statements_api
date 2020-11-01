@@ -19,18 +19,18 @@ def index():
 
 @bp.route('/read', methods=('GET', 'POST'))
 def login():
-    print('here')
     if request.method == 'POST':
-        print('Is request')
         data = request.get_json()
-        print(data)
-        username, password = data
+        username = data['username']
+        password = data['password']
+
         error = None
         db = get_db()
+
         user = db.execute(
             'SELECT * FROM users WHERE username = ?', (username,)
         ).fetchone()
-        print(user)
+
 
         if user is None:
             error = 'Incorrect username.'
@@ -40,9 +40,10 @@ def login():
         if error is None:
             session.clear() #**
             session['user_id'] = user['id'] #**
-            # return redirect(url_for('index'))
-            print('succes')
-            flash('Sucess')
+            
+            #print('succes')
+            flash('Success')
+            #return redirect(url_for('index'))
         flash(error)
         return render_template('index.html', title="Error to load page")
 
