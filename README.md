@@ -14,10 +14,11 @@ docker run -p 5000:5000 statements_api
 # Using docker-compose
 docker-compose up --build
 
-# To do the POST request use Postman or developers tools,
-# Or if you prefer use curl
-'''curl --header "Content-Type: application/json" \
+# To do the POST 
+```
+curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"username":"user","password":"user"}' \
-  http://localhost:500/read'''
+  http://localhost:500/read
+```
 
