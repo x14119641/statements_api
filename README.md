@@ -12,10 +12,13 @@ pip install -r "requirements.txt"
 # Using dockerfile
 ```
 docker build -t statements_api .
-docker run -p 5000:5000 statements_api```
+docker run -p 5000:5000 statements_api
+```
 
 # Using docker-compose
-```docker-compose up --build```
+```
+docker-compose up --build
+```
 
 # To do the POST 
 ```
