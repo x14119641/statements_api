@@ -41,7 +41,7 @@ def test_data_in(db):
     users = db.execute(
         'SELECT COUNT(id) as counter FROM users'
     ).fetchone()[0]
-    assert users == 2
+    assert users == 4
 
     users_details = db.execute(
         '''SELECT customer_name, document, emails,
@@ -51,7 +51,7 @@ def test_data_in(db):
         ON (users.id=customers.customer_id)
         JOIN accounts
         ON (users.id=accounts.account_id)
-        WHERE users.id=1 
+        WHERE users.id=3 
         '''
     ).fetchall()[0]
 
@@ -65,7 +65,7 @@ def test_data_in(db):
         FROM users 
         JOIN statements 
         ON (users.id=statements.statement_id)
-        WHERE users.id=1'''
+        WHERE users.id=3'''
     ).fetchall()
 
     assert len(statements) == 2
