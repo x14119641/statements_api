@@ -16,8 +16,9 @@
             background-color: #26a69a;
         }
     </style>
-    
+
 </head>
+
 <body>
     {% include 'nav.html' %}
 
@@ -25,9 +26,11 @@
         {% if get_flashed_messages() %}
         <div class="container">
             <div class="row align-items-center">
-            {% for message in get_flashed_messages() %}
-                <div class="flash_error"><p>{{ message }}</p></div>
-            {% endfor %} 
+                {% for message in get_flashed_messages() %}
+                <div class="flash_error">
+                    <p>{{ message }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
         {% endif %}

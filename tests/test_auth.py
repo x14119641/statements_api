@@ -21,4 +21,3 @@ def test_login(client, username, password, message):
         assert json_data["data"]["accounts"][0]["iban"] == "ES232100123303030000"
     else:
         assert message in response.data
-
