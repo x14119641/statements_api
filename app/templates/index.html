@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>{% block title %}{% endblock %}</title>
+    <title>{{ title }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -24,15 +24,20 @@
     <main>
         {% if get_flashed_messages() %}
         <div class="container">
-            <div class="row justify-content-center align-items-center">
+            <div class="row align-items-center">
             {% for message in get_flashed_messages() %}
-                <div class="flash_error text-danger">{{ message }}</div>
+                <div class="flash_error"><p>{{ message }}</p></div>
             {% endfor %} 
             </div>
         </div>
         {% endif %}
 
-        {% block main %}{% endblock %}
+        <div class="container">
+            <div class="row align-items-center">
+                <h4>This is a POST page</h4>
+                <p>Content-type: application/json</p>
+            </div>
+        </div>
     </main>
 </body>
 

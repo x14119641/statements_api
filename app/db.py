@@ -12,7 +12,7 @@ def get_db():
             detect_types=sqlite3.PARSE_DECLTYPES
         )
         g.db.row_factory = sqlite3.Row
-
+    current_app.logger.info("Logged in db.")
     return g.db
 
 
@@ -21,6 +21,7 @@ def close_db(e=None):
 
     if db is not None:
         db.close()
+        current_app.logger.info("db closed.")
 
 
 def init_db():
@@ -28,6 +29,11 @@ def init_db():
 
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
+        current_app.logger.info("Schema created.")
+
+    with current_app.open_resource('fake_data.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+        current_app.logger.info("Fake data inserted.")
 
 
 @click.command('init-db')
@@ -36,6 +42,7 @@ def init_db_command():
     """Clear the existing data and create new tables."""
     init_db()
     click.echo('Initialized the database.')
+    current_app.logger.info('Initialized the database.')
 
 
 def init_app(app):
