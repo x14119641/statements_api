@@ -10,11 +10,13 @@ VALUES
   (1, 'user name ', 'Titular', 'Y2224444K', "C/user street, 1", "user@test.com", "+3912312312"),
   (2, 'user2 name', 'Titular', 'Y3339999L', "C/user2, 2", "user2@test.com", "+3163568901");
 
+
 INSERT INTO accounts (account_id, account_name, iban, currency)
 VALUES
   (1, 'Personal Account', 'ES232100123303030000', "EUR"),
   (1, 'Savings Account', 'ES232100123303030001', "EUR"),
   (2, 'Personal Account', 'ES232100123303030088', "EUR");
+
 
 INSERT INTO statements (statement_id, created, concept, amount, balance)
 VALUES

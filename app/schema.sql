@@ -23,6 +23,7 @@ CREATE TABLE customers (
   FOREIGN KEY (customer_id) REFERENCES user (id)
 );
 
+
 CREATE TABLE accounts (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   account_id INTEGER NOT NULL,
@@ -31,6 +32,7 @@ CREATE TABLE accounts (
   currency TEXT NOT NULL,
   FOREIGN KEY (account_id) REFERENCES user (id)
 );
+
 
 CREATE TABLE statements (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -5,7 +5,6 @@ from flask import (
 )
 
 from app.db import get_db
-from app import etl
 
 
 def create_response():
